@@ -1,12 +1,14 @@
 Package: tRNAbias
-Title: What the Package Does (One Line, Title Case)
+Title: Selective Pressures for Phage tRNA Acquisition
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Joy",
+           family = "Yang",
            role = c("aut", "cre"),
-           email = "first.last@example.com")
-Description: What the package does (one paragraph).
-License: What license it uses
+           email = "yangjy@cal.berkeley.edu")
+Description: The pa.
+License: This package contains the processed data used for the paper "Selective pressures for phage tRNA acquisition." It also comes with a vignette that generates the main figures within the paper. Raw sequencing reads are also publicly available on the NCBI Sequenced Reads Archive under BioProject numbers PRJNA524872 (tRNA-seq) and PRJNA524877 (full transcriptome RNA-seq).
 Encoding: UTF-8
 LazyData: true
+Suggests: knitr, bookdown, scales, png, grid
+VignetteBuilder: knitr
