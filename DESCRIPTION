@@ -6,11 +6,11 @@ Authors@R:
            family = "Yang",
            role = c("aut", "cre"),
            email = "yangjy@cal.berkeley.edu")
-Description: The pa.
-License: This package contains the processed data used for the paper "Selective pressures for phage tRNA acquisition." It also comes with a vignette that generates the main figures within the paper. Raw sequencing reads are also publicly available on the NCBI Sequenced Reads Archive under BioProject numbers PRJNA524872 (tRNA-seq) and PRJNA524877 (full transcriptome RNA-seq).
+Description: This package contains the processed data used for the paper "Selective pressures for phage tRNA acquisition." It also comes with a vignette that generates the main figures within the paper. Raw sequencing reads are also publicly available on the NCBI Sequenced Reads Archive under BioProject numbers PRJNA524872 (tRNA-seq) and PRJNA524877 (full transcriptome RNA-seq).
+License: GPL
 Encoding: UTF-8
 LazyData: true
-Suggests: 
+Imports:
     knitr,
     bookdown,
     scales,
