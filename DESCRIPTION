@@ -10,5 +10,11 @@ Description: The pa.
 License: This package contains the processed data used for the paper "Selective pressures for phage tRNA acquisition." It also comes with a vignette that generates the main figures within the paper. Raw sequencing reads are also publicly available on the NCBI Sequenced Reads Archive under BioProject numbers PRJNA524872 (tRNA-seq) and PRJNA524877 (full transcriptome RNA-seq).
 Encoding: UTF-8
 LazyData: true
-Suggests: knitr, bookdown, scales, png, grid
+Suggests: 
+    knitr,
+    bookdown,
+    scales,
+    png,
+    grid,
+    rmarkdown
 VignetteBuilder: knitr
