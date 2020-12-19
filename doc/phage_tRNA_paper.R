@@ -451,9 +451,10 @@ par(mar=c(5,4.75,4,1.25))
 scatterBox(x,y,ptcols=c("#888888",purples9[7])[x],
 	   outline=FALSE,pch=16,nbreaks=30,
 	   border=c("#0A0A0A",purples9[9]),
-	   names=c("",""), ylab="Anticodon Entropy",
+	   names=c("",""),
 	   col=alpha("#FFFFFF",0))
-title(main="Phage tRNA\nAnticodon Diversity", font.main=1)
+title(main="Phage tRNA\nAnticodon Diversity",
+      ylab="Anticodon Entropy",font.main=1)
 axis(1,at=c(2,1),labels=c("Contiguous\nHost tRNA","Randomly\nAcquired"),line=0.9,lty=0)#,cex.axis=0.8
 abline(h=phageDiversityCodons,col=golds9[9],lwd=1.5,lty=2)
 text(2.5,phageDiversityCodons-0.15,
@@ -468,9 +469,10 @@ par(mar=c(5,4.75,4,1.25))
 scatterBox(c("Absent\nfrom Phage","Carried\nby Phage")[tRNACarriedByPhage], hosttRNAExpression , 
 	   ptcol = phagecolors[phagebreaks],
 	   outline=FALSE,pch=16,las=2,yaxt="n",
-	   ylab="Host tRNA Expression",names=c("",""),
+	   names=c("",""),
 	   col=alpha("#FFFFFF",0))
-title(main="Host tRNA\nCharacteristics",font.main=1)
+title(main="Host tRNA\nCharacteristics",
+      ylab="Host tRNA Expression", font.main=1)
 axis(1,at=c(2,1),labels=c("Has Phage\nAnalog","No Phage\nAnalog"),line=0.9,lty=0)
 figlabel("B",cex=1.5)
 

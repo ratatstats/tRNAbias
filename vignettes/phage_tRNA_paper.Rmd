@@ -529,9 +529,10 @@ par(mar=c(5,4.75,4,1.25))
 scatterBox(x,y,ptcols=c("#888888",purples9[7])[x],
 	   outline=FALSE,pch=16,nbreaks=30,
 	   border=c("#0A0A0A",purples9[9]),
-	   names=c("",""), ylab="Anticodon Entropy",
+	   names=c("",""),
 	   col=alpha("#FFFFFF",0))
-title(main="Phage tRNA\nAnticodon Diversity", font.main=1)
+title(main="Phage tRNA\nAnticodon Diversity",
+      ylab="Anticodon Entropy",font.main=1)
 axis(1,at=c(2,1),labels=c("Contiguous\nHost tRNA","Randomly\nAcquired"),line=0.9,lty=0)#,cex.axis=0.8
 abline(h=phageDiversityCodons,col=golds9[9],lwd=1.5,lty=2)
 text(2.5,phageDiversityCodons-0.15,
@@ -546,9 +547,10 @@ par(mar=c(5,4.75,4,1.25))
 scatterBox(c("Absent\nfrom Phage","Carried\nby Phage")[tRNACarriedByPhage], hosttRNAExpression , 
 	   ptcol = phagecolors[phagebreaks],
 	   outline=FALSE,pch=16,las=2,yaxt="n",
-	   ylab="Host tRNA Expression",names=c("",""),
+	   names=c("",""),
 	   col=alpha("#FFFFFF",0))
-title(main="Host tRNA\nCharacteristics",font.main=1)
+title(main="Host tRNA\nCharacteristics",
+      ylab="Host tRNA Expression", font.main=1)
 axis(1,at=c(2,1),labels=c("Has Phage\nAnalog","No Phage\nAnalog"),line=0.9,lty=0)
 figlabel("B",cex=1.5)
 
@@ -573,7 +575,7 @@ Our results indicate that the main role of the phage 2.275.O tRNAs is to support
 
 This simple line of logic unifies many observations previously made in the literature, either through deep interrogations of the T4 infection cycle or broad analyses of tRNA-carrying phage: First, the presence of many tRNAs is more often found in genomes of lytic phage than those of temperate phage [@Bailly-Bechet2007]. Aggressively lytic phage often degrade the host genome as the phage can then use the nucleotides to increase its burst size. But because translation is required for phage particle production, these phage presumably benefit from shuttling their own translation machinery by extending the replication period beyond the time at which the host resources are depleted. 
 
-A second observation is that phage tRNAs appear to optimize codon usage bias toward phage genes and away from host genes [@Scherberg1972]. According to our findings, tRNAs absent from the phage correspond to those that tend to be highly expressed in the host, and tRNAs highly expressed in the host correspond to codons that are most commonly used by the host, or are most biased toward the host (Supplementary Figure 7). This backdoor correlation may explain a large part of the observed codon usage bias effect. Moreover, once the phage acquire tRNA, an adaptive feedback loop can form between the phage genome codon usage and the tRNA array that it carries. This feedback loop explains a third observation, which is that codon usage bias is more pronounced in late phage genes than in the early genes [@Cowe1991;@Kunisawa1992;@Kunisawa1998]. Early mRNAs require use of host tRNAs, as the bulk of phage tRNAs are still in the process of being transcribed and processed, whereas late mRNAs are expected to be more dependent on the phage tRNAs, as the bulk of the host tRNA might be degraded later in the infection. 
+A second observation is that phage tRNAs appear to optimize codon usage bias toward phage genes and away from host genes [@Scherberg1972]. According to our findings, tRNAs absent from the phage correspond to those that tend to be more highly expressed in the host than tRNAs present in the phage, and tRNAs highly expressed in the host correspond to codons that are most commonly used by the host, or are most biased toward the host (Supplementary Figure 7). This backdoor correlation may explain a large part of the observed codon usage bias effect. Moreover, once the phage acquire tRNA, an adaptive feedback loop can form between the phage genome codon usage and the tRNA array that it carries. This feedback loop explains a third observation, which is that codon usage bias is more pronounced in late phage genes than in the early genes [@Cowe1991;@Kunisawa1992;@Kunisawa1998]. Early mRNAs require use of host tRNAs, as the bulk of phage tRNAs are still in the process of being transcribed and processed, whereas late mRNAs are expected to be more dependent on the phage tRNAs, as the bulk of the host tRNA might be degraded later in the infection. 
 
 And finally, a fourth observation is that phage with tRNAs generally have larger genomes than those without  [@Bailly-Bechet2007]. For phage with large genomes, it is more important to degrade the host genome to free up nucleotides, leading again to the quandary presented by the first point. In addition, larger phage might require longer periods of replication and more resources for supporting translation in the wake of degrading host tRNA. The longer the infection persists past host resource degradation, the stronger the selective pressure for phage to encode their own machinery, which in turn selects for larger phage. A tRNA deletion mutant of phage 2.275.O could address how tRNAs change the latent period or burst size during infection. We note that this experiment may prove very difficult to do in a wild, non-model system such as we utilize here and could potentially be carried out in a more tractable model system.
 
@@ -588,7 +590,7 @@ The code and processed data used for this paper are available on Github ([https:
 
 ## Exploratory genome-based codon usage bias analysis
 
-In order to assess the plausibility of the codon usage bias hypothesis, we conducted a preliminary analysis of the phage and host genomes. The tRNA carried by each organism was called using tRNAscan-SE [@Lowe1997]. The multidimensional scaling analysis uses Shannon-Jensen divergence between codon distributions for each protein as the distance metric. The odds ratio for each codon is defined as $\frac{P(\text{codon | org = phage})/(1-P(\text{codon | org = phage}))}{P(\text{codon | org = host})/(1-P(\text{codon | org = host}))}$.
+In order to assess the plausibility of the codon usage bias hypothesis, we conducted a preliminary analysis of the phage and host genomes. The tRNA carried by each organism was called using tRNAscan-SE [@Lowe1997] and Aragorn [@Laslett2004]. The multidimensional scaling analysis uses Shannon-Jensen divergence between codon distributions for each protein as the distance metric. The odds ratio for each codon is defined as $\frac{P(\text{codon | org = phage})/(1-P(\text{codon | org = phage}))}{P(\text{codon | org = host})/(1-P(\text{codon | org = host}))}$.
 
 ## tRNA sequencing timecourse
 
