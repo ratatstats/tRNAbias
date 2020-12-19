@@ -1,11 +1,10 @@
 ---
 title: "Selective pressures for phage tRNA acquisition"
-output: rmarkdown::html_vignette
+output: bookdown::html_document2
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{Selective pressures for phage tRNA acquisition}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
-fontsize: 12pt
 bibliography: ./tRNA.bib
 ---
 
