@@ -1,5 +1,6 @@
 ---
 title: "Selective pressures for phage tRNA acquisition"
+author: "Joy Y. Yang, Wenwen Fang, Fabiola Miranda-Sanchez, Julia M. Brown, Kathryn M. Kauman, Libusha Kelly, David P. Bartel, Martin F. Polz"
 output: bookdown::html_document2
 vignette: >
   %\VignetteIndexEntry{Selective pressures for phage tRNA acquisition}
