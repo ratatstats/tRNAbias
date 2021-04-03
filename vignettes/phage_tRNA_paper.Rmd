@@ -425,19 +425,46 @@ legend("bottomright",pch=16,col=colorsToUse,
 figlabel("B",cex=1.5)
 
 par(mar=c(4,6.3,0.1,1))
+phageMean = apply(tRNAPart[grepl("^phage",rownames(tRNAPart)), ], 2, mean)
+hostMean = apply(tRNAPart[grepl("^host",rownames(tRNAPart)), ], 2, mean)
+phageVar = apply(tRNAPart[grepl("^phage",rownames(tRNAPart)), ], 2, var)
+hostVar = apply(tRNAPart[grepl("^host",rownames(tRNAPart)), ], 2, var)
+phageCount = apply(tRNAPart[grepl("^phage",rownames(tRNAPart)), ], 2, length)
+hostCount = apply(tRNAPart[grepl("^host",rownames(tRNAPart)), ], 2, length)
 plot(0,0,
-     xlim=outterxlim,#c(1,dim(tRNAPart)[2]),
-     ylim=padrange(tRNAPart,c(0,0.06)),
+     xlim=outterxlim,
+     ylim=c(-1, 1),
      bty="n",xaxt="n",
-     xlab="",ylab="tRNA Expression (Relative)")
+     xlab="",ylab="log10( tRNA Expr., Normalized )")
 abline(v = 6, col = golds9[2], lwd = 5)
-for(x in 1:dim(tRNAPart)[1]){
-  lines((1:dim(tRNAPart)[2]),tRNAPart[x,],lwd=1.5,
-	col=c(purples9[8],colorRampPalette(c(golds9[6],"#FFCC33"))(3)[2])[
-	  grepl("^phage",rownames(tRNAPart)[x])+1])
-  }
-legend("topright",col=c(purples9[8],colorRampPalette(c(golds9[6],"#FFCC33"))(3)[2]),legend=c("host tRNA","phage tRNA"),
-       lwd=1.5,lty=1,bty="n",cex=0.9)
+lines((1:dim(tRNAPart)[2]),
+      log10(hostMean),
+      lwd=2,
+      col=purples9[8])
+lines((1:dim(tRNAPart)[2]),
+      log10(hostMean) - 1.96 * sqrt(hostVar / hostMean^2) / sqrt(hostCount),
+      lwd=1, lty = 2,
+      col=purples9[8])
+lines((1:dim(tRNAPart)[2]),
+      log10(hostMean) + 1.96 * sqrt(hostVar / hostMean^2) / sqrt(hostCount),
+      lwd=1, lty = 2,
+      col=purples9[8])
+lines((1:dim(tRNAPart)[2]),
+      log10(phageMean),
+      lwd=2,
+      col=colorRampPalette(c(golds9[6],"#FFCC33"))(3)[2])
+lines((1:dim(tRNAPart)[2]),
+      log10(phageMean) - 1.96 * sqrt(phageVar / phageMean^2) / sqrt(phageCount),
+      lwd=1, lty = 2,
+      col=colorRampPalette(c(golds9[6],"#FFCC33"))(3)[2])
+lines((1:dim(tRNAPart)[2]),
+      log10(phageMean) + 1.96 * sqrt(phageVar / phageMean^2) / sqrt(phageCount),
+      lwd=1, lty = 2,
+      col=colorRampPalette(c(golds9[6],"#FFCC33"))(3)[2])
+legend("topright",
+       col=c(purples9[8],colorRampPalette(c(golds9[6],"#FFCC33"))(3)[2]),
+       legend=c("host tRNA","phage tRNA"),
+       lwd=2,lty=1,bty="n",cex=0.9)
 axis(1,at=1:10,labels=c("Preinf",paste(seq(0,120,by=15)," min",sep="")),las=2,srt=45)
 figlabel("C",cex=1.5)
 ```
